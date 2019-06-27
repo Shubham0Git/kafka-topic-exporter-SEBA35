@@ -111,16 +111,25 @@ type ImporterKPI struct {
 }
 
 type OnosAaaKPI struct {
-	RxAcceptResponses    float64 `json:"acceptResponsesRx"`
-	RxRejectResponses    float64 `json:"rejectResponsesRx"`
-	RxChallengeResponses float64 `json:"challengeResponsesRx"`
-	TxAccessRequests     float64 `json:"accessRequestsTx"`
-	RxInvalidValidators  float64 `json:"invalidValidatorsRx"`
-	RxUnknownType        float64 `json:"unknownTypeRx"`
-	PendingRequests      float64 `json:"pendingRequests"`
-	RxDroppedResponses   float64 `json:"droppedResponsesRx"`
-	RxMalformedResponses float64 `json:"malformedResponsesRx"`
-	RxUnknownserver      float64 `json:"unknownServerRx"`
-	RequestRttMillis     float64 `json:"requestRttMillis"`
-	RequestReTx          float64 `json:"requestReTx"`
+	RxAcceptResponses        float64 `json:"acceptResponsesRx"`
+	RxRejectResponses        float64 `json:"rejectResponsesRx"`
+	RxChallengeResponses     float64 `json:"challengeResponsesRx"`
+	TxAccessRequests         float64 `json:"accessRequestsTx"`
+	RxInvalidValidators      float64 `json:"invalidValidatorsRx"`
+	RxUnknownType            float64 `json:"unknownTypeRx"`
+	PendingRequests          float64 `json:"pendingRequests"`
+	RxDroppedResponses       float64 `json:"droppedResponsesRx"`
+	RxMalformedResponses     float64 `json:"malformedResponsesRx"`
+	RxUnknownserver          float64 `json:"unknownServerRx"`
+	RequestRttMillis         float64 `json:"requestRttMillis"`
+	RequestReTx              float64 `json:"requestReTx"`
+	RxeapolLogoff            float64 `json:"eapolLogoffRx"`
+	EapolResIdentityMsgTrans float64 `json:"eapolResIdentityMsgTrans"`
+	AuthSuccessTrans         float64 `json:"authSuccessTrans"`
+	AuthFailureTrans         float64 `json:"authFailureTrans"`
+	StartReqTrans            float64 `json:"startReqTrans"`
+	TxAccessReqPkt           float64 `json:"accessReqPktTx"`
+	RxaccessChallPkt         float64 `json:"accessChallPktRx"`
+	EapPktTxauthEap          float64 `json:"eapPktTxauthEap"`
+	TransRespnotNak          float64 `json:"transRespnotNak"`
 }

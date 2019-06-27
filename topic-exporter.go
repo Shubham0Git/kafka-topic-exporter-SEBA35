@@ -175,6 +175,51 @@ var (
 			Name: "onosaaa_request_re_tx",
 			Help: "Number of access request packets retransmitted to the server",
 		})
+	onosaaaEapolLogoffRx = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_eapol_Logoff_Rx",
+			Help: "Number of EAPOL logoff messages received resulting in disconnected state",
+		})
+	onosaaaEapolResIdentityMsgTrans = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_eapol_Res_IdentityMsg_Trans",
+			Help: "Number of authenticating transitions due to EAP response or identity message",
+		})
+	onosaaaAuthSuccessTrans = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_auth_Success_Trans",
+			Help: "Number of authenticated transitions due to successful authentication",
+		})
+	onosaaaAuthFailureTrans = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_auth_Failure_Trans",
+			Help: "Number of transitions to held due to authentication failure",
+		})
+	onosaaaStartReqTrans = 	prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_start_Req_Trans",
+			Help: "Number of transitions to connecting due to start request",
+		})
+	onosaaaTxAccessReqPkt =	prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_access_Req_Pkt_Tx",
+			Help: "Number of access request packets sent",
+		})
+	onosaaaRxaccessChallPkt = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_access_Chall_Pkt_Rx",
+			Help: "Number of access challenge packets received",
+		})
+	onosaaaEapPktTxauthEap = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_eap_Pkt_Tx_auth_Eap",
+			Help: "Number of EAP request packets sent due to the authenticator choosing the EAP method",
+		})
+	onosaaaTransRespnotNak = prometheus.NewGauge(
+		prometheus.GaugeOpts{
+			Name: "onosaaa_trans_Resp_not_Nak",
+			Help: "Number of transitions to response (received response other that NAK)",
+		})
 )
 
 func exportVolthaKPI(kpi VolthaKPI) {
@@ -439,6 +484,24 @@ func exportOnosAaaKPI(kpi OnosAaaKPI) {
 	onosaaaRequestRttMillis.Set(kpi.RequestRttMillis)
 
 	onosaaaRequestReTx.Set(kpi.RequestReTx)
+
+	onosaaaEapolLogoffRx.Set(kpi.RxeapolLogoff)
+
+	onosaaaEapolResIdentityMsgTrans.Set(kpi.EapolResIdentityMsgTrans)
+
+	onosaaaAuthSuccessTrans.Set(kpi.AuthSuccessTrans)
+
+	onosaaaAuthFailureTrans.Set(kpi.AuthFailureTrans)
+
+	onosaaaStartReqTrans.Set(kpi.StartReqTrans)
+
+	onosaaaTxAccessReqPkt.Set(kpi.TxAccessReqPkt)
+
+	onosaaaRxaccessChallPkt.Set(kpi.RxaccessChallPkt)
+
+	onosaaaEapPktTxauthEap.Set(kpi.EapPktTxauthEap)
+
+	onosaaaTransRespnotNak.Set(kpi.TransRespnotNak)
 }
 
 func export(topic *string, data []byte) {
